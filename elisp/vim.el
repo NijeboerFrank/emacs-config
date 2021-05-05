@@ -1,5 +1,17 @@
+;; Evil leader. I set this to <SPC>
+(use-package evil-leader
+  :ensure t
+  :init
+  (setq evil-want-keybinding nil)
+  (global-evil-leader-mode)
+  :config
+  (evil-leader/set-leader "<SPC>"))
+
+
+;; Vim emulation, without this I wouldn't be able to use emacs
 (use-package evil
-  :after (undo-tree)
+  :ensure t
+  :after (undo-tree evil-leader)
   :config
   (evil-mode 1)
   (evil-set-undo-system 'undo-tree)
@@ -10,7 +22,7 @@
   (setq evil-want-abbrev-expand-on-insert-exit nil)
   (setq evil-respect-visual-line-mode t))
 
-
+;; Enable ESC and jk to exit insert mode and other stuff
 (use-package evil-escape
   :init
   (setq evil-escape-excluded-states '(normal visual multiedit emacs motion)
@@ -21,6 +33,12 @@
   :config
   (evil-escape-mode +1))
 
-(use-package evil-leader)
+;; Enable evil bindings in other modes
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
 
+;; Expose this package
 (provide 'vim)

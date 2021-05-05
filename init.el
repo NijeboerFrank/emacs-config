@@ -15,3 +15,7 @@
 
 ;; Completion stuff
 (require 'completion)
+
+;; LSP
+(require 'lang)
+(require 'lang-python)
