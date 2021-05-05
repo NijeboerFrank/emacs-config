@@ -7,7 +7,12 @@
 
 ;; Set default font size
 (defvar nijemacs/default-font-size 140)
-(set-face-attribute 'default nil :height nijemacs/default-font-size)
+(set-face-attribute 'default nil :font "Jetbrains Mono" :height nijemacs/default-font-size)
+
+;; Set the fixed pitch face
+(set-face-attribute 'fixed-pitch nil :font "Jetbrains Mono" :height nijemacs/default-font-size)
+;; Set the variable pitch face
+(set-face-attribute 'variable-pitch nil :font "Fira Code Retina" :height 160 :weight 'regular)
 
 ;; Custom file
 (defvar nijemacs/custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -17,6 +22,7 @@
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 
 ;; Refresh packages
 (package-initialize)
@@ -25,18 +31,24 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-
-(defun install-if-needed (package)
-  (unless (package-installed-p package)
-    (package-install package)))
-
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
 
 ;; Emacs customizations
 (setq custom-file                        nijemacs/custom-file
       make-backup-files                  nil
-      display-line-numbers-type          'relative
       ; inhibit-startup-message            t
       use-package-always-ensure          t)
+
+(global-display-line-numbers-mode t)
+
+;; Disable line numbers for some modes
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 ;; Keep buffers automatically up to date
 (global-auto-revert-mode t)
@@ -81,3 +93,4 @@
   (global-undo-tree-mode))
 
 (provide 'base)
+;;; base.el ends here

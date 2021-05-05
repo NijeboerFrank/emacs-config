@@ -13,9 +13,19 @@
 ;; Project management
 (require 'projects)
 
+;; Tree
+(require 'tree)
+
 ;; Completion stuff
 (require 'completion)
 
+;; Org mode
+(require 'notes)
+
+;; Dired configuration
+(require 'directories)
+
 ;; LSP
-(require 'lang)
-(require 'lang-python)
+;; (require 'lang)
+;; (require 'lang-python)
+;;; init.el ends here

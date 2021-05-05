@@ -8,9 +8,9 @@
   :diminish projectile-mode
   :config
   (setq projectile-completion-system 'ivy)
-  (projectile-global-mode)
+  (projectile-mode)
   :init
-  (setq projectile-project-search-path '("~/workspace/development/"))
+  (setq projectile-project-search-path '("~/Documents/Code/extendas"))
   (setq projectile-switch-project-action #'projectile-dired)
   (evil-leader/set-key "p" 'projectile-command-map))
 
@@ -23,3 +23,4 @@
 
 ;; Expose this file
 (provide 'projects)
+;;; projects.el ends here

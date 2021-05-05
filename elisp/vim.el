@@ -20,7 +20,11 @@
   (setq evil-want-C-u-delete t)
   (setq evil-want-Y-yank-to-eol t)
   (setq evil-want-abbrev-expand-on-insert-exit nil)
-  (setq evil-respect-visual-line-mode t))
+  (setq evil-respect-visual-line-mode t)
+
+  ;; Use visual line motions even outside of visual-line-mode buffers
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
 
 ;; Enable ESC and jk to exit insert mode and other stuff
 (use-package evil-escape
@@ -40,5 +44,10 @@
   :config
   (evil-collection-init))
 
+;; Vim commentary in evil mode
+(use-package evil-nerd-commenter
+  :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+
 ;; Expose this package
 (provide 'vim)
+;;; vim.el ends here
