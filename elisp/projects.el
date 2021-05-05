@@ -10,7 +10,8 @@
   (setq projectile-completion-system 'ivy)
   (projectile-mode)
   :init
-  (setq projectile-project-search-path '("~/Documents/Code/extendas"))
+  (setq projectile-project-search-path '("~/Documents/Code"
+					 "~/Documents/Notes"))
   (setq projectile-switch-project-action #'projectile-dired)
   (evil-leader/set-key "p" 'projectile-command-map))
 
