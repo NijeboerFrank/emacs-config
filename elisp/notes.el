@@ -44,8 +44,10 @@
 
   ;; Setup agenda files
   (setq org-agenda-files
-	'("~/Documents/OrgFiles/Tasks.org"
-	  "~/Documents/OrgFiles/Birthdays.org"))
+	'("~/Documents/Notes/OrgFiles"
+	  "~/Documents/Notes/OrgFiles/Meetings"))
+
+  (evil-leader/set-key "a" 'org-agenda)
 
   (setq org-todo-keywords
     '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")

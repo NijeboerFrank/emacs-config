@@ -25,7 +25,9 @@
 ;; Dired configuration
 (require 'directories)
 
+;; Terminal
+(require 'terminal)
+
 ;; LSP
-;; (require 'lang)
-;; (require 'lang-python)
+(require 'lang)
 ;;; init.el ends here

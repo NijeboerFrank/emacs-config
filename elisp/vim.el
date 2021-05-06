@@ -1,11 +1,25 @@
+(defun nijemacs/evil-conf ()
+  (setq evil-want-C-g-bindings t)
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-Y-yank-to-eol t)
+  (setq evil-want-abbrev-expand-on-insert-exit nil)
+  (setq evil-respect-visual-line-mode t))
+
 ;; Evil leader. I set this to <SPC>
 (use-package evil-leader
   :ensure t
   :init
+  (nijemacs/evil-conf)
   (setq evil-want-keybinding nil)
   (global-evil-leader-mode)
   :config
-  (evil-leader/set-leader "<SPC>"))
+  (evil-leader/set-leader "<SPC>")
+  (evil-leader/set-key
+    "bn" 'next-buffer
+    "bp" 'previous-buffer
+    "bs" 'switch-to-buffer
+    "bk" 'kill-current-buffer
+    "br" 'rename-buffer))
 
 
 ;; Vim emulation, without this I wouldn't be able to use emacs
@@ -13,14 +27,9 @@
   :ensure t
   :after (undo-tree evil-leader)
   :config
+  (nijemacs/evil-conf)
   (evil-mode 1)
   (evil-set-undo-system 'undo-tree)
-  (setq evil-want-C-g-bindings t)
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-u-delete t)
-  (setq evil-want-Y-yank-to-eol t)
-  (setq evil-want-abbrev-expand-on-insert-exit nil)
-  (setq evil-respect-visual-line-mode t)
 
   ;; Use visual line motions even outside of visual-line-mode buffers
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
@@ -47,6 +56,14 @@
 ;; Vim commentary in evil mode
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+
+(use-package evil-org
+  :ensure t
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode))
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 ;; Expose this package
 (provide 'vim)
