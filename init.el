@@ -28,6 +28,9 @@
 ;; Terminal
 (require 'terminal)
 
+;; PDF in emacs
+(require 'pdf)
+
 ;; LSP
 (require 'lang)
 ;;; init.el ends here

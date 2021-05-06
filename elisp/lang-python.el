@@ -18,15 +18,15 @@
   :config
   (pyvenv-mode 1))
 
-(use-package py-isort
-  :after python
-  :hook ((python-mode . pyvenv-mode)
-         (before-save . py-isort-before-save)))
+;; (use-package py-isort
+;;   :after python
+;;   :hook ((python-mode . pyvenv-mode)
+;;          (before-save . py-isort-before-save)))
 
-(use-package blacken
-  :delight
-  :hook (python-mode . blacken-mode)
-  :custom (blacken-line-length 79))
+;; (use-package blacken
+;;   :delight
+;;   :hook (python-mode . blacken-mode)
+;;   :custom (blacken-line-length 79))
 
 
 ;;; lang python

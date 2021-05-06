@@ -5,10 +5,8 @@
 ;; LSP
 (use-package lsp-mode
   :commands (lsp lsp-deferred lsp-install-server)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
   :config
-  ;; (evil-leader/set-key "l" 'lsp-command-map)
+  (evil-leader/set-key "l" lsp-command-map)
   (lsp-enable-which-key-integration t))
 
 
@@ -68,6 +66,7 @@
 
 ;; Import all other languages and lsp stuff here
 (require 'lang-json)
+(require 'lang-python)
 
 ;; base lang
 (provide 'lang)
