@@ -1,5 +1,6 @@
 ;; Load the 'elisp' directory
 (add-to-list 'load-path (concat user-emacs-directory "elisp"))
+(add-to-list 'load-path (concat user-emacs-directory "exwm"))
 
 ;; Base settings
 (require 'base)
@@ -33,4 +34,7 @@
 
 ;; LSP
 (require 'lang)
+
+;; Window Manager in Emacs
+;; (require 'window)
 ;;; init.el ends here

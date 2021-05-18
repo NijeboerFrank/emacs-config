@@ -67,6 +67,7 @@
 ;; Import all other languages and lsp stuff here
 (require 'lang-json)
 (require 'lang-python)
+(require 'lang-yaml)
 
 ;; base lang
 (provide 'lang)

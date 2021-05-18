@@ -44,8 +44,8 @@
 
   ;; Setup agenda files
   (setq org-agenda-files
-	'("~/Documents/Notes/OrgFiles"
-	  "~/Documents/Notes/OrgFiles/Meetings"))
+	'("~/Documents/OrgFiles"
+	  "~/Documents/OrgFiles/Meetings"))
 
   (evil-leader/set-key "a" 'org-agenda)
 

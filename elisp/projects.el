@@ -11,7 +11,7 @@
   (projectile-mode)
   :init
   (setq projectile-project-search-path '("~/Documents/Code"
-					 "~/Documents/Notes"))
+					 "~/Documents"))
   (setq projectile-switch-project-action #'projectile-dired)
   (evil-leader/set-key "p" 'projectile-command-map))
 

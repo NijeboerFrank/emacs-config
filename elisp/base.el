@@ -6,7 +6,7 @@
 (setq visible-bell 1)
 
 ;; Set default font size
-(defvar nijemacs/default-font-size 140)
+(defvar nijemacs/default-font-size 120)
 (set-face-attribute 'default nil :font "Jetbrains Mono" :height nijemacs/default-font-size)
 
 ;; Set the fixed pitch face
