@@ -71,7 +71,9 @@
 
 (use-package org-bullets
   :after org
-  :hook (org-mode . org-bullets-mode))
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 ;; We need this to use the source code blocks
 (org-babel-do-load-languages
