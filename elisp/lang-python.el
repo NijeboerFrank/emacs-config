@@ -18,6 +18,7 @@
   :config
   (pyvenv-mode 1))
 
+(use-package kivy-mode)
 ;; (use-package py-isort
 ;;   :after python
 ;;   :hook ((python-mode . pyvenv-mode)

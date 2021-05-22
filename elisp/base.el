@@ -12,7 +12,7 @@
 ;; Set the fixed pitch face
 (set-face-attribute 'fixed-pitch nil :font "Jetbrains Mono" :height nijemacs/default-font-size)
 ;; Set the variable pitch face
-(set-face-attribute 'variable-pitch nil :font "Fira Code Retina" :height 160 :weight 'regular)
+(set-face-attribute 'variable-pitch nil :font "Source Sans Pro" :height 160 :weight 'regular)
 
 ;; Custom file
 (defvar nijemacs/custom-file (expand-file-name "custom.el" user-emacs-directory))

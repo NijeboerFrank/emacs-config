@@ -1,6 +1,5 @@
 (defun nijemacs/evil-conf ()
   (setq evil-want-C-g-bindings t)
-  (setq evil-want-C-u-scroll t)
   (setq evil-want-Y-yank-to-eol t)
   (setq evil-want-abbrev-expand-on-insert-exit nil)
   (setq evil-respect-visual-line-mode t))
@@ -55,7 +54,14 @@
 
 ;; Vim commentary in evil mode
 (use-package evil-nerd-commenter
-  :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+  :config
+  (evil-leader/set-key
+  "ci" 'evilnc-comment-or-uncomment-lines
+  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+  "cc" 'evilnc-copy-and-comment-lines
+  "cp" 'evilnc-comment-or-uncomment-paragraphs
+  "cr" 'comment-or-uncomment-region
+  "cv" 'evilnc-toggle-invert-comment-line-by-line))
 
 (use-package evil-org
   :ensure t
