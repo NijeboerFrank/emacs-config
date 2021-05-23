@@ -14,11 +14,16 @@
   :config
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
+    "oc" 'org-capture
+    "oa" 'org-agenda)
+
+  (evil-leader/set-key
     "bn" 'next-buffer
     "bp" 'previous-buffer
     "bs" 'switch-to-buffer
     "bk" 'kill-current-buffer
     "br" 'rename-buffer))
+
 
 
 ;; Vim emulation, without this I wouldn't be able to use emacs

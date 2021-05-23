@@ -37,10 +37,10 @@
      `(org-level-7 ((t (,@headline ,@variable-tuple))))
      `(org-level-6 ((t (,@headline ,@variable-tuple))))
      `(org-level-5 ((t (,@headline ,@variable-tuple))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.05))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.10))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.25))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.5))))
      `(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil)))))))
 
 (use-package org
@@ -52,19 +52,35 @@
   ;; (setq org-agenda-start-with-log-mode t)
   ;; (setq org-log-done 'time)
   ;; (setq org-log-into-drawer t)
+  (setq org-capture-templates '(("t" "Todo [inbox]" entry
+				 (file+headline "~/Dropbox/GTD/inbox.org" "Tasks")
+				 "* TODO %i%?")
+				("T" "Tickler" entry
+				 (file+headline "~/Dropbox/GTD/tickler.org" "Tickler")
+				 "* %i%? \n %U")))
+
+  (setq org-refile-targets '(("~/Dropbox/GTD/gtd.org" :maxlevel . 3)
+                             ("~/Dropbox/GTD/someday.org" :level . 1)
+                             ("~/Dropbox/GTD/tickler.org" :maxlevel . 2)))
+
+  ;; Quick tags list
+  (setq org-tag-alist
+      '((:startgroup)
+       ; Put mutually exclusive tags here
+	(:endgroup)
+	("@errand" . ?E)
+	("@home" . ?H)
+	("@work" . ?W)
+	("@travel" . ?T)))
+
+  ;; Save Org buffers after refiling!
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
   ;; Setup agenda files
-  ;; (setq org-agenda-files
-	;; '("~/Documents/OrgFiles"
-	  ;; "~/Documents/OrgFiles/Meetings"))
+  (setq org-agenda-files
+	'("~/Dropbox/GTD"))
 
-  ;; (evil-leader/set-key "a" 'org-agenda)
-
-  ;; (setq org-todo-keywords
-    ;; '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
-      ;; (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
-
-
+  (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 
   (nijemacs/org-font-setup))
 
