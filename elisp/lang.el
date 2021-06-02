@@ -1,6 +1,6 @@
 ;; flycheck syntax checker
-;; (use-package flycheck
-;;   :init (global-flycheck-mode))
+(use-package flycheck
+  :init (global-flycheck-mode))
 
 ;; LSP
 (use-package lsp-mode
@@ -10,17 +10,14 @@
   (lsp-enable-which-key-integration t))
 
 
-;; (use-package lsp-ui
-;;   :hook (lsp-mode . lsp-ui-mode)
-;;   :custom
-;;   (lsp-ui-doc-position 'bottom))
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-position 'bottom))
 
-;; (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 
-;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-
-;; (use-package company-lsp
-;;   :commands company-lsp)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 ;;Optional - provides snippet support.
 
@@ -31,11 +28,11 @@
 ;;          (python-mode . yas-minor-mode)
 ;;          ))
 
-;; (setq lsp-ui-doc-enable t
-;;       lsp-ui-peek-enable t
-;;       lsp-ui-sideline-enable t
-;;       lsp-ui-imenu-enable t
-;;       lsp-ui-flycheck-enable t)
+(setq lsp-ui-doc-enable t
+      lsp-ui-peek-enable t
+      lsp-ui-sideline-enable t
+      lsp-ui-imenu-enable t
+      lsp-ui-flycheck-enable t)
 
 ;; DAP
 ;; (use-package dap-mode

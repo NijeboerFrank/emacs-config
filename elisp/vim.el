@@ -15,7 +15,8 @@
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
     "oc" 'org-capture
-    "oa" 'org-agenda)
+    "oa" 'org-agenda
+    "ot" 'counsel-org-tag)
 
   (evil-leader/set-key
     "bn" 'next-buffer
@@ -67,6 +68,11 @@
   "cp" 'evilnc-comment-or-uncomment-paragraphs
   "cr" 'comment-or-uncomment-region
   "cv" 'evilnc-toggle-invert-comment-line-by-line))
+
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
 
 (use-package evil-org
   :ensure t

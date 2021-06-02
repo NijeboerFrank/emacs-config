@@ -22,6 +22,12 @@
   :config
   (counsel-projectile-mode))
 
+;; Add ripgrep to projectile
+(use-package ripgrep)
+
+(use-package projectile-ripgrep
+  :after projectile ripgrep)
+
 ;; Expose this file
 (provide 'projects)
 ;;; projects.el ends here
