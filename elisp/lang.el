@@ -65,6 +65,7 @@
 (require 'lang-json)
 (require 'lang-python)
 (require 'lang-yaml)
+(require 'lang-go)
 
 ;; base lang
 (provide 'lang)
