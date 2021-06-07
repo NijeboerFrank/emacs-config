@@ -93,5 +93,9 @@
   :config
   (global-undo-tree-mode))
 
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-copy-env "PATH"))
+
 (provide 'base)
 ;;; base.el ends here
