@@ -14,5 +14,8 @@
   :after (treemacs projectile)
   :ensure t)
 
+(use-package treemacs-evil
+  :after treemacs)
+
 (provide 'tree)
 ;;; tree.el ends here
